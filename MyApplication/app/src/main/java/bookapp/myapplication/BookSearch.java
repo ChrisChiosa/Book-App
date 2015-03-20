@@ -10,6 +10,11 @@ import android.widget.ArrayAdapter;
 
 public class BookSearch extends ActionBarActivity {
 
+
+
+    /**
+     * Creates a spinner of the searchTypes String array
+     **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

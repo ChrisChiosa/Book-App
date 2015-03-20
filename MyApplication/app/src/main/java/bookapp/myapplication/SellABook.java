@@ -10,6 +10,9 @@ import android.widget.Spinner;
 
 public class SellABook extends ActionBarActivity {
 
+    /**
+     * Creates a spinner of the conditions String array
+     **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
