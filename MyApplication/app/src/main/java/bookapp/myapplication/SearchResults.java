@@ -6,37 +6,31 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import android.widget.TextView;
 
 
-public class MyListings extends ActionBarActivity {
+public class SearchResults extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_listings);
+        setContentView(R.layout.activity_search_results);
 
-        ListView list = (ListView) findViewById(R.id.listView);
-        ArrayList<String> bookList = new ArrayList<>();
+        TextView txt = (TextView) findViewById(R.id.queryTxt);
+
         Intent i = getIntent();
 
-        String[] temp = i.getStringExtra("list").split("\\r?\\n");
-        bookList.addAll(Arrays.asList(temp));
+        String result = i.getStringExtra("query");
+        Log.e("Results", result);
 
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.row, bookList);
-
-        list.setAdapter(listAdapter);
+        txt.setText(result);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_my_listings, menu);
+        getMenuInflater().inflate(R.menu.menu_search_results, menu);
         return true;
     }
 

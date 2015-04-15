@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Book App</string>
+    <string name="app_name">Bookr</string>
     <string name="page_title">Front Page</string>
     <string name="action_settings">Settings</string>
 
@@ -10,7 +10,7 @@
     <string name="listingButton"> Edit My Listings </string>
     <string name="infoButton"> Edit My Personal Information </string>
     <string name="exitButton"> Exit </string>
-    <string name="SUNY">SUNY Oswego</string>
+    <string name="SUNY">For SUNY Oswego</string>
 
 
 
@@ -33,6 +33,7 @@
         <item>Good</item>
         <item>Poor</item>
     </string-array>
+    <string name="autoFillWarn">(Autofill lookup may take a few seconds.)</string>
     <string name="requiredExplanation">(* = Required Field)</string>
     <string name="listMyBook"> List My Book </string>
     <string name="askingPriceColon">Asking Price: </string>
@@ -45,8 +46,8 @@
 
 <!-- Strings for activity_book_search -->
     <string-array name="searchTypes">
-        <item>ISBN</item>
         <item>Title</item>
+        <item>ISBN</item>
         <item>Author</item>
     </string-array>
     <string name="title_activity_book_search">Book Search</string>
@@ -58,5 +59,7 @@
     <string name="title_activity_my_listings">My Listings</string>
     <string name="temp">Users can choose to edit or remove their listed books, which will be shown above.</string>
     <string name="saveAndReturn"> Save and Return </string>
+    <string name="title_activity_search_results">SearchResults</string>
+    <string name="hello_world">Hello world!</string>
     
 </resources>

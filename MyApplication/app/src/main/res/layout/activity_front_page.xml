@@ -10,22 +10,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/SUNY"
-        android:id="@+id/textView2"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/app_name"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
         android:textSize="42sp"
-        android:layout_below="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2"
         android:layout_centerHorizontal="true" />
 
     <LinearLayout
@@ -33,6 +23,16 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/textView">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/SUNY"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
         <Space
             android:layout_width="match_parent"
@@ -48,7 +48,8 @@
             android:onClick="switchToSearch"
             android:layout_gravity="center_horizontal"
             android:layout_weight=".1"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textAllCaps="false"/>
 
         <Space
             android:layout_width="match_parent"
@@ -64,7 +65,8 @@
             android:onClick="switchToSell"
             android:layout_gravity="center_horizontal"
             android:layout_weight=".1"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textAllCaps="false"/>
 
         <Space
             android:layout_width="match_parent"
@@ -80,7 +82,8 @@
             android:onClick="switchToListing"
             android:layout_gravity="center_horizontal"
             android:layout_weight=".1"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textAllCaps="false"/>
 
         <Space
             android:layout_width="match_parent"
@@ -96,7 +99,8 @@
             android:layout_gravity="center_horizontal"
             android:onClick="switchToMyInformation"
             android:layout_weight=".1"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textAllCaps="false"/>
 
         <Space
             android:layout_width="match_parent"
@@ -104,14 +108,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_weight=".1" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/exitButton"
-            android:id="@+id/button10"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight=".1"
-            android:textSize="25sp" />
+
 
     </LinearLayout>
 
