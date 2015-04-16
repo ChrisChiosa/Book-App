@@ -39,21 +39,37 @@ public class FrontPage extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Switches to activity_sell_a_book, called when Look for Books is pressed.
+     * @param view required param I don't care about
+     **/
     public void switchToSell(View view) {
         Intent intent = new Intent(this, SellABook.class);
         startActivity(intent);
     }
 
+    /**
+     * Switches to activity_my_information, called when Edit My Information is pressed.
+     * @param view required param I don't care about
+     **/
     public void switchToMyInformation(View view){
         Intent intent = new Intent(this, MyInformation.class);
         startActivity(intent);
     }
 
+    /**
+     * Switches to activity_my_listings, called when Edit My Listings is pressed.
+     * @param view required param I don't care about
+     **/
     public void switchToListing(View view){
         Intent intent = new Intent(this, MyListings.class);
         startActivity(intent);
     }
 
+    /**
+     * Switches to activity_book_search, called when Search for Books is pressed.
+     * @param view required param I don't care about
+     **/
     public void switchToSearch(View view){
         Intent intent = new Intent(this, BookSearch.class);
         startActivity(intent);
