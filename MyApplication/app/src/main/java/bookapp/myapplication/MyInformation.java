@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
 public class MyInformation extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_information);
 
@@ -25,15 +25,15 @@ public class MyInformation extends ActionBarActivity {
         {
             public void onClick(View view)
             {
-                String txt = "GET:" + ((EditText) findViewById(R.id.editEmail)).getText().toString() +
-                             "-" + ((EditText) findViewById(R.id.editName)).getText().toString() + "-" +
+                String txt = "GET%" + ((EditText) findViewById(R.id.editEmail)).getText().toString() +
+                             "|" + ((EditText) findViewById(R.id.editName)).getText().toString() + "|" +
                              ((EditText) findViewById(R.id.editPhone)).getText().toString();
-
+                MyProperties.getInstance().email = ((EditText) findViewById(R.id.editEmail)).getText().toString();
                 Intent nextScreen = new Intent(getApplicationContext(), MyListings.class);
 
                 String newTxt = getMessage(txt);
                 nextScreen.putExtra("list", newTxt);
-
+                Log.e("!", MyProperties.getInstance().email);
                 Log.e("n", newTxt);
 
                 startActivity(nextScreen);

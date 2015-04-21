@@ -1,6 +1,7 @@
 package bookapp.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import org.jsoup.*;
@@ -25,6 +27,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.InputStream;
+import java.util.concurrent.ExecutionException;
 
 
 public class SellABook extends ActionBarActivity {
@@ -93,7 +96,18 @@ public class SellABook extends ActionBarActivity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
             new DownloadWebpageTask().execute(stringUrl);
-
+            Button save = (Button) findViewById(R.id.listBook);
+            save.setOnClickListener(new View.OnClickListener(){
+                public void onClick(View view)
+                {
+                    String txt = "ADD%" + isbnEditText.getText().toString() + "|" +
+                                 titleEditText.getText().toString() + "|" + authorEditText.getText().toString() +
+                                 "|" + MyProperties.getInstance().email + "|" + ((EditText) findViewById(R.id.priceTextField)).getText().toString();
+                    getMessage(txt);
+                    Intent intent = new Intent(getApplicationContext(), FrontPage.class);
+                    startActivity(intent);
+                }
+            });
         } else {
             authorEditText.setText("No Connection Available");
         }
@@ -190,6 +204,21 @@ public class SellABook extends ActionBarActivity {
         return new String(buffer);
     }
 
-
+    public String getMessage(String msg)
+    {
+        Client c = new Client();
+        try
+        {
+            c.execute(msg);
+            return c.get();
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        } catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+        return "error";
+    }
 
 }

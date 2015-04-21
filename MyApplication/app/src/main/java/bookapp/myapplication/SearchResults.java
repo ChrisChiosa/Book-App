@@ -6,7 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class SearchResults extends ActionBarActivity {
@@ -16,14 +21,16 @@ public class SearchResults extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results);
 
-        TextView txt = (TextView) findViewById(R.id.queryTxt);
-
+        ListView list = (ListView) findViewById(R.id.searchList);
+        ArrayList<String> bookList = new ArrayList<>();
         Intent i = getIntent();
 
-        String result = i.getStringExtra("query");
-        Log.e("Results", result);
+        String[] results = i.getStringExtra("query").replace("|", "\r\n").split("%");
+        bookList.addAll(Arrays.asList(results));
 
-        txt.setText(result);
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.row, R.id.rowTextView , bookList);
+
+        list.setAdapter(listAdapter);
     }
 
 

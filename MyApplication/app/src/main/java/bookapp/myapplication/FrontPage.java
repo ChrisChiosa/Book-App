@@ -3,9 +3,12 @@ package bookapp.myapplication;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.util.concurrent.ExecutionException;
 
 
 public class FrontPage extends ActionBarActivity {
@@ -14,6 +17,8 @@ public class FrontPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
+        //MyProperties.getInstance().email = "bob@example.com";
+        Log.e("!", MyProperties.getInstance().email);
     }
 
 
@@ -63,6 +68,8 @@ public class FrontPage extends ActionBarActivity {
      **/
     public void switchToListing(View view){
         Intent intent = new Intent(this, MyListings.class);
+        String msg = getMessage("GET%" + MyProperties.getInstance().email + "|");
+        intent.putExtra("list", msg);
         startActivity(intent);
     }
 
@@ -73,5 +80,22 @@ public class FrontPage extends ActionBarActivity {
     public void switchToSearch(View view){
         Intent intent = new Intent(this, BookSearch.class);
         startActivity(intent);
+    }
+
+    public String getMessage(String msg)
+    {
+        Client c = new Client();
+        try
+        {
+            c.execute(msg);
+            return c.get();
+        } catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        } catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+        return "error";
     }
 }

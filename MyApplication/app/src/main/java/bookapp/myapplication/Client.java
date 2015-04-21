@@ -20,7 +20,7 @@ public class Client extends AsyncTask<String, Void, String>
     protected String doInBackground(String... msg)
     {
         final int PORT = 2709;
-        String host = "129.3.208.119";//"129.3.211.143";//"129.3.171.200";
+        String host = "129.3.208.119";//"129.3.211.143";//"129.3.171.200";//
         String results = "";
 
         Socket tcp = null;
@@ -33,12 +33,12 @@ public class Client extends AsyncTask<String, Void, String>
             in = new BufferedReader(new InputStreamReader(tcp.getInputStream()));
             //for(String s : msg)
             //{
-                Log.e("SENDING: ", msg[0]);
+                Log.e("SENDING% ", msg[0]);
                 out.println(msg[0]);
                 out.flush();
             //}
             results = in.readLine();
-            Log.e("GOT: ", results);
+            Log.e("GOT% ", results);
             out.close();
             in.close();
             tcp.close();

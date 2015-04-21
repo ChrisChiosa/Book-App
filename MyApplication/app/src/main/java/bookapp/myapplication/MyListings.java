@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -24,12 +26,20 @@ public class MyListings extends ActionBarActivity {
         ArrayList<String> bookList = new ArrayList<>();
         Intent i = getIntent();
 
-        String[] temp = i.getStringExtra("list").split("\\r?\\n");
-        bookList.addAll(Arrays.asList(temp));
-
-        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.row, bookList);
-
+        String[] results = i.getStringExtra("list").replace("|", "\r\n").split("%");
+        bookList.addAll(Arrays.asList(results));
+        ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.row, R.id.rowTextView , bookList);
         list.setAdapter(listAdapter);
+
+        Button save = (Button) findViewById(R.id.saveButton);
+        save.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View view)
+            {
+                Intent next = new Intent(getApplicationContext(), FrontPage.class);
+                startActivity(next);
+            }
+        });
     }
 
 

@@ -51,7 +51,7 @@ public class BookSearch extends ActionBarActivity {
             public void onClick(View view)
             {
                 String txt = ((Spinner) findViewById(R.id.spinner2)).getSelectedItem().toString() +
-                             ":" + ((EditText) findViewById(R.id.searchQuery)).getText().toString();
+                             "%" + ((EditText) findViewById(R.id.searchQuery)).getText().toString();
                 
                 Intent nextScreen = new Intent(getApplicationContext(), SearchResults.class);
 

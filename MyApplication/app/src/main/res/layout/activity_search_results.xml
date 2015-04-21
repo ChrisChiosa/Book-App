@@ -7,11 +7,18 @@
     tools:context="bookapp.myapplication.SearchResults"
     android:background="#55AA55">
 
-    <TextView
-        android:id="@+id/queryTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dip"
-        android:textSize="18dip"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true">
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="301dp"
+            android:id="@+id/searchList"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.82" /> />
+    </LinearLayout>
 
 </RelativeLayout>
